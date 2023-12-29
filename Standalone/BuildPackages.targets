@@ -26,25 +26,49 @@
 	</Target>
 	<Target Name="BatchBuild" BeforeTargets="Pack"
 			Outputs="@(O_BatchBuild)">
+		<!--TODO: Can this structure have... a FOR LOOP?-->
 		<ItemGroup>
 			<ToBuilt Include="Steamworks.NET.Standard.csproj">
-				<Properties>Platform=x64;Configuration=Windows;PackagingBuild=true</Properties>
+				<Properties>Platform=x64;Configuration=Windows;PackagingBuild=true;TargetFramework=netstandard2.1</Properties>
 			</ToBuilt>
 			<ToBuilt Include="Steamworks.NET.Standard.csproj">
-				<Properties>Platform=x64;Configuration=OSX-Linux;PackagingBuild=true</Properties>
+				<Properties>Platform=x64;Configuration=OSX-Linux;PackagingBuild=true;TargetFramework=netstandard2.1</Properties>
 			</ToBuilt>
 			<ToBuilt Include="Steamworks.NET.Standard.csproj">
-				<Properties>Platform=x86;Configuration=Windows;PackagingBuild=true</Properties>
+				<Properties>Platform=x86;Configuration=Windows;PackagingBuild=true;TargetFramework=netstandard2.1</Properties>
 			</ToBuilt>
 			<ToBuilt Include="Steamworks.NET.Standard.csproj">
-				<Properties>Platform=x86;Configuration=OSX-Linux;PackagingBuild=true</Properties>
+				<Properties>Platform=x86;Configuration=OSX-Linux;PackagingBuild=true;TargetFramework=netstandard2.1</Properties>
 			</ToBuilt>
 			<ToBuilt Include="Steamworks.NET.Standard.csproj">
 				<Properties>
 					Platform=x64;
 					Configuration=Windows;
 					ProduceOnlyReferenceAssembly=true;
-					OutDir=$(ProjectDir)bin\ref
+					OutDir=$(ProjectDir)bin\ref\netstandard2.1
+					;TargetFramework=netstandard2.1
+				</Properties>
+			</ToBuilt>
+
+			<ToBuilt Include="Steamworks.NET.Standard.csproj">
+				<Properties>Platform=x64;Configuration=Windows;PackagingBuild=true;TargetFramework=net462</Properties>
+			</ToBuilt>
+			<ToBuilt Include="Steamworks.NET.Standard.csproj">
+				<Properties>Platform=x64;Configuration=OSX-Linux;PackagingBuild=true;TargetFramework=net462</Properties>
+			</ToBuilt>
+			<ToBuilt Include="Steamworks.NET.Standard.csproj">
+				<Properties>Platform=x86;Configuration=Windows;PackagingBuild=true;TargetFramework=net462</Properties>
+			</ToBuilt>
+			<ToBuilt Include="Steamworks.NET.Standard.csproj">
+				<Properties>Platform=x86;Configuration=OSX-Linux;PackagingBuild=true;TargetFramework=net462</Properties>
+			</ToBuilt>
+			<ToBuilt Include="Steamworks.NET.Standard.csproj">
+				<Properties>
+					Platform=x64;
+					Configuration=Windows;
+					ProduceOnlyReferenceAssembly=true;
+					;TargetFramework=net462;
+					OutDir=$(ProjectDir)bin\ref\net462
 				</Properties>
 			</ToBuilt>
 		</ItemGroup>
@@ -93,7 +117,7 @@
 			<_TargetPathsToSymbols Include="@(Pdb)" />
 		</ItemGroup>
 	</Target>
-			
+
 	<Target Name="ShowPackagedFiles" AfterTargets="CollectNugetContent">
 		<Message Text="Package Files: @(_PackageFiles)" Importance="high" />
 	</Target>
