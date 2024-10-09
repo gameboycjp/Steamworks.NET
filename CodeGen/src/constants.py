@@ -141,7 +141,7 @@ g_CustomDefines = {
 
 def main(parser):
     try:
-        os.makedirs("../com.rlabrecque.steamworks.net/Runtime/autogen/")
+        os.makedirs("../Universal/autogen/")
     except OSError:
         pass
 
@@ -152,7 +152,7 @@ def main(parser):
             lines.append("//" + precomment)
         lines.append("public const " + constant.type + " " + constant.name + constant.spacing + "= " + constant.value + ";" + constant.comment)
 
-    with open("../com.rlabrecque.steamworks.net/Runtime/autogen/SteamConstants.cs", "wb") as out:
+    with open("../Universal/autogen/SteamConstants.cs", "wb") as out:
         with open("templates/header.txt", "r") as f:
             out.write(bytes(f.read(), "utf-8"))
         out.write(bytes("namespace Steamworks {\n", "utf-8"))
@@ -161,7 +161,7 @@ def main(parser):
             out.write(bytes("\t\t" + line + "\n", "utf-8"))
         out.write(bytes("\t}\n", "utf-8"))
         out.write(bytes("}\n\n", "utf-8"))
-        out.write(bytes("#endif // !DISABLESTEAMWORKS\n", "utf-8"))
+        #out.write(bytes("#endif // !DISABLESTEAMWORKS\n", "utf-8"))
 
 def parse(parser):
     interfaceversions, defines = parse_defines(parser)

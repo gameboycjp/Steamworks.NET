@@ -134,5 +134,3 @@ namespace Steamworks {
 		#endregion
 	}
 }
-
-#endif // !DISABLESTEAMWORKS

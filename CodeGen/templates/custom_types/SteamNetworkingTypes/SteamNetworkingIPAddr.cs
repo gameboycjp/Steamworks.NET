@@ -94,5 +94,3 @@ namespace Steamworks
 		}
 	}
 }
-
-#endif // !DISABLESTEAMWORKS

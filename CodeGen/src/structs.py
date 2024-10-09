@@ -99,7 +99,7 @@ g_ExplicitStructs = {
 
 def main(parser):
     try:
-        os.makedirs("../com.rlabrecque.steamworks.net/Runtime/autogen/")
+        os.makedirs("../Universal/autogen/")
     except OSError:
         pass
 
@@ -111,23 +111,23 @@ def main(parser):
         for callback in f.callbacks:
             callbacklines.extend(parse(callback))
 
-    with open("../com.rlabrecque.steamworks.net/Runtime/autogen/SteamStructs.cs", "wb") as out:
+    with open("../Universal/autogen/SteamStructs.cs", "wb") as out:
         with open("templates/header.txt", "r") as f:
             out.write(bytes(f.read(), "utf-8"))
         out.write(bytes("namespace Steamworks {\n", "utf-8"))
         for line in lines:
             out.write(bytes(line + "\n", "utf-8"))
         out.write(bytes("}\n\n", "utf-8"))
-        out.write(bytes("#endif // !DISABLESTEAMWORKS\n", "utf-8"))
+        #out.write(bytes("#endif // !DISABLESTEAMWORKS\n", "utf-8"))
 
-    with open("../com.rlabrecque.steamworks.net/Runtime/autogen/SteamCallbacks.cs", "wb") as out:
+    with open("../Universal/autogen/SteamCallbacks.cs", "wb") as out:
         with open("templates/header.txt", "r") as f:
             out.write(bytes(f.read(), "utf-8"))
         out.write(bytes("namespace Steamworks {\n", "utf-8"))
         for line in callbacklines:
             out.write(bytes(line + "\n", "utf-8"))
         out.write(bytes("}\n\n", "utf-8"))
-        out.write(bytes("#endif // !DISABLESTEAMWORKS\n", "utf-8"))
+        #out.write(bytes("#endif // !DISABLESTEAMWORKS\n", "utf-8"))
 
 def parse(struct):
     if struct.name in g_SkippedStructs:

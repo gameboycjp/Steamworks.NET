@@ -158,7 +158,7 @@ def main(parser):
 
     for root, directories, filenames in os.walk('templates/custom_types/'):
         for filename in filenames:
-            outputdir = "../com.rlabrecque.steamworks.net/Runtime/types/" + root[len('templates/custom_types/'):]
+            outputdir = "../Universal/types/" + root[len('templates/custom_types/'):]
             try:
                 os.makedirs(outputdir)
             except OSError:
@@ -201,11 +201,11 @@ def main(parser):
         foldername = g_PrettyFilenames.get(foldername, foldername)
 
         try:
-            os.makedirs("../com.rlabrecque.steamworks.net/Runtime/types/" + foldername)
+            os.makedirs("../Universal/types/" + foldername)
         except OSError:
             pass
 
-        with open("../com.rlabrecque.steamworks.net/Runtime/types/" + foldername + "/" + t.name + ".cs", "wb") as out:
+        with open("../Universal/types/" + foldername + "/" + t.name + ".cs", "wb") as out:
             out.write(bytes(HEADER, "utf-8"))
             out.write(bytes(ourtemplate, "utf-8"))
 

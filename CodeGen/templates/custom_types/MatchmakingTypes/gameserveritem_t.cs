@@ -86,5 +86,3 @@ namespace Steamworks {
 		public CSteamID m_steamID;
 	}
 }
-
-#endif // !DISABLESTEAMWORKS

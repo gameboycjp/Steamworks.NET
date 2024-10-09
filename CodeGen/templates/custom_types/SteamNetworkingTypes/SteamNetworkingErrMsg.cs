@@ -10,5 +10,3 @@ namespace Steamworks
 		public byte[] m_SteamNetworkingErrMsg;
 	}
 }
-
-#endif // !DISABLESTEAMWORKS
