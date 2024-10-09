@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<!--<TargetFramework>netstandard2.1</TargetFramework>-->
+		<RootNamespace>Steamworks</RootNamespace>
+		<AssemblyName>Steamworks.NET</AssemblyName>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+</Project>
